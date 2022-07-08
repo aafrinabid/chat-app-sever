@@ -1,0 +1,14 @@
+.chat{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    border: 1px rgb(173, 134, 134) solid;
+    box-shadow: 1px 1px;
+    background-color: rgb(116, 141, 141);
+
+
+}
+
+
+.container{
+    padding: 100px;
+}

@@ -1,0 +1,12 @@
+.upperpart{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    border: 2px black solid;
+}
+
+
+.profile{
+      margin-left: 5px;
+      border-radius: 50%;
+        width: 50px;
+    }
