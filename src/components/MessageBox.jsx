@@ -6,25 +6,31 @@ function MessageBox(props) {
     let direction
     if(props.from==='me'){
         style={
+            // padding:'5px 0px',
+            paddingLeft:'5px',
+
             width:'50%',
             borderRadius:'10px',
             // justifyContent:'flex-start',
             alignItems:'flex-end',
-            border:'1px solid black',
+            border:'0px solid black',
            margin:'5px 0px',
-           backgroundColor:'wheat'
+           backgroundColor:'rgb(239,238,238)'
 
         }
         direction='flex-end'
         
     }else{
          style={
+            // padding:'5px 0px',
+            paddingLeft:'5px',
+
             width:'50%',
             alignItems:'flex-start',
-            borderRadius:'10px',
+            borderRadius:'13px',
             justifyContent:'flex-start',
-            border:'1px solid black',
-            backgroundColor:'gray'
+            border:'.5px solid rgb(239,238,238)',
+            backgroundColor:'rgb(255,254,254)'
 
 
         }
@@ -33,9 +39,9 @@ function MessageBox(props) {
         
     }
   return (
-    <div style={{display:'flex',justifyContent:direction,padding:'0px 5px'}}>
+    <div style={{display:'flex',justifyContent:direction,padding:'2px 5px'}}>
     <div style={style}>
-       jfjslfkksjfjl jk ljfl kj j fjkj kfjkjk  kjfljklfk kkj  jfjkjj kdjlfj kfkjkfjjfkjkjfkjfkjfkjfkjfkj
+       <p style={{paddingRight:'5px'}}> jfjslfkksjfjl jk ljfl kj j fjkj kfjkjk  kjfljklfk kkj  jfjkjj kdjlfj kfkjkfjjfkjkjfkjfkjfkjfkjfkj</p>
      </div>
      </div>
   )
