@@ -4,10 +4,13 @@ import { BsEmojiSmileFill } from "react-icons/bs";
 import { IoMdSend } from "react-icons/io";
 import styled from "styled-components";
 import Picker from "emoji-picker-react";
-
-
+import {useDispatch} from 'react-redux'
+import { messageActions } from "../assets/store/messageSlice";
+import { io } from "socket.io-client";
+const socket=io('http://localhost:3001')
 
 function TextArea() {
+  const dispatch= useDispatch();
     const [msg, setMsg] = useState("");
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const handleEmojiPickerhideShow = () => {
@@ -23,7 +26,9 @@ function TextArea() {
     const sendChat = (event) => {
       event.preventDefault();
       if (msg.length > 0) {
-        // handleSendMsg(msg);
+      //  setMsg(event.target.value)
+       dispatch(messageActions.addMessage({message:msg,from:'me'}))
+       socket.emit('send-message',msg)
         setMsg("");
       }
     };

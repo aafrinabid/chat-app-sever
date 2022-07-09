@@ -1,6 +1,18 @@
-import React from 'react'
+import React from 'react';
+import {io} from 'socket.io-client'
+import { useDispatch } from 'react-redux';
+import { messageActions } from '../assets/store/messageSlice';
 
-function MessageBox(props) {
+const socket =io('http://localhost:3001')
+
+
+function MessageBox(props){
+  const dispatch= useDispatch();
+
+  socket.on('connect',()=>{
+    dispatch(messageActions.addMessage({message:`connected with ${socket.id}`,from:'them'}))
+
+  })
     console.log(props)
     let style
     let direction
@@ -20,7 +32,7 @@ function MessageBox(props) {
         }
         direction='flex-end'
         
-    }else{
+    }if(props.from==='them'){
          style={
             // padding:'5px 0px',
             paddingLeft:'5px',
@@ -41,7 +53,7 @@ function MessageBox(props) {
   return (
     <div style={{display:'flex',justifyContent:direction,padding:'2px 5px'}}>
     <div style={style}>
-       <p style={{paddingRight:'5px'}}> jfjslfkksjfjl jk ljfl kj j fjkj kfjkjk  kjfljklfk kkj  jfjkjj kdjlfj kfkjkfjjfkjkjfkjfkjfkjfkjfkj</p>
+       <p style={{paddingRight:'5px'}}>{props.message}</p>
      </div>
      </div>
   )
