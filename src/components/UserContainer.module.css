@@ -9,8 +9,10 @@
 
 .profile{
     border-radius: 50%;
-    width: 55px;
+    width: 40px;
     margin-left:30px ;
+    /* margin-right: 10px; */
+ z-index: -1000;
 }
 
 .userText{
